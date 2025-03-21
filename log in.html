@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e3f2fd;
+            flex-direction: column;
+        }
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 16px;
+            outline: none;
+        }
+        button {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 95%;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background: linear-gradient(135deg, #0056b3, #003d82);
+            transform: scale(1.05);
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #d84315;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <input type="text" id="username" placeholder="اسم المستخدم" onkeydown="handleKeyPress(event, 'password')">
+        <input type="password" id="password" placeholder="كلمة المرور" onkeydown="handleKeyPress(event, 'loginButton')">
+        <button id="loginButton" onclick="login()">تسجيل الدخول</button>
+        <p id="message"></p>
+    </div>
+    <div class="footer">Mariam Abdo</div>
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var message = document.getElementById("message");
+            
+            if (username === "Mariam" && password === "2292005") {
+                window.location.href = "nextpage.html";
+            } else {
+                message.innerText = "اسم المستخدم أو كلمة المرور غير صحيحة!";
+            }
+        }
+        
+        function handleKeyPress(event, nextElementId) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById(nextElementId).focus();
+            }
+        }
+    </script>
+</body>
+</html>
